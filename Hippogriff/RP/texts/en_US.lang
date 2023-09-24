@@ -1,0 +1,7 @@
+item.spawn_egg.entity.jimicc:hippogriff.name=Spawn Hippogriff
+entity.jimicc:hippogriff.name=Hippogriff
+item.spawn_egg.entity.jimicc:custom_bat.name=Spawn Bat Custom
+entity.jimicc:custom_bat.name=Bat Custom
+tile.jimicc:hippogriff_spawner.name=Hippogriff Distance Spawner
+item.spawn_egg.entity.jimicc:bad_cow.name=Spawn Bad Cow
+entity.jimicc:bad_cow.name=Bad Cow

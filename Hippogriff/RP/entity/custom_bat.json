@@ -1,0 +1,36 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "jimicc:custom_bat",
+      "materials": {
+        "default": "bat"
+      },
+      "textures": {
+        "default": "textures/entity/custom_bat"
+      },
+      "geometry": {
+        "default": "geometry.custom_bat"
+      },
+      "scripts": {
+        "scale": 0.35
+      },
+      "animations": {
+        "resting": "animation.custom_bat.resting",
+        "flying": "animation.custom_bat.flying"
+      },
+      "animation_controllers": [
+        {
+          "move": "controller.animation.custom_bat.move"
+        }
+      ],
+      "render_controllers": [
+        "controller.render.custom_bat"
+      ],
+      "spawn_egg": {
+        "base_color": "#000000",
+        "overlay_color": "#FFFFFF"
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "jimicc:hippogriff",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/hipogriff"
+			},
+			"geometry": {
+				"default": "geometry.hippogriff"
+			},
+			"render_controllers": [
+				"controller.render.hippogriff"
+			],
+			"spawn_egg": {
+				"base_color": "#B5A6A6",
+				"overlay_color": "#231E2A"
+			},
+			"scripts": {
+				"initialize": [
+					"variable.runtimeid = 0;",
+					"variable.tailrotx = -5.0;",
+					"variable.wingrotz = 0.0;"
+				],
+				"animate": [
+					"anim_controller",
+					"idle"
+				]
+			},
+			"animations": {
+				"walk": "animation.flying.walk",
+				"idle": "animation.flying.idle",
+				"attack": "animation.flying.attack",
+				"flap": "animation.flying.flap",
+				"landing": "animation.flying.landing",
+				"takeoff": "animation.upright.stand.takeoff",
+				"anim_controller": "controller.animation.hippogriff.base_pose"
+			}
+		}
+	}
+}

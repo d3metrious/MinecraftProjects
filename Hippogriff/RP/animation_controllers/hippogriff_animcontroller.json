@@ -1,0 +1,25 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.hippogriff.base_pose": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"flap"
+					]
+				}
+			}
+		},
+		"controller.animation.phantom.move": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"walk"
+					]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,11 @@
+{
+	"num_mip_levels": 4,
+	"padding": 8,
+	"resource_pack_name": "Hippogriff",
+	"texture_name": "atlas.terrain",
+	"texture_data": {
+		"jimicc_hippogriff_spawner": {
+			"textures": "textures/blocks/hippogriff_spawner"
+		}
+	}
+}

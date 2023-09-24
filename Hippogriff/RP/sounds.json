@@ -1,0 +1,43 @@
+{
+	"entity_sounds": {
+		"entities": {
+			"jimicc:custom_bat": {
+				"volume": 0.1,
+				"pitch": [
+					0.76,
+					1.14
+				],
+				"events": {
+					"ambient": "mob.custom_bat.idle",
+					"hurt": "mob.custom_bat.hurt",
+					"death": "mob.custom_bat.death",
+					"takeoff": {
+						"sound": "mob.custom_bat.takeoff",
+						"volume": 0.05,
+						"pitch": [
+							0.8,
+							1.2
+						]
+					}
+				}
+			},
+			"jimicc:bad_cow": {
+				"volume": 1,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.bad_cow.say",
+					"hurt": "mob.bad_cow.hurt",
+					"death": "mob.bad_cow.hurt",
+					"step": {
+						"sound": "mob.bad_cow.step",
+						"volume": 0.15,
+						"pitch": 1
+					}
+				}
+			}
+		}
+	}
+}
