@@ -12,7 +12,8 @@
 				"stand_takeoff": "animation.upright.stand.takeoff",
 				"flying_idle": "animation.flying.idle",
 				"flying_flap": "animation.server.flying.flap",
-				"ground_anim_controller": "controller.animation.hippogriff.on_ground"
+				"ground_anim_controller": "controller.animation.hippogriff.on_ground",
+				"pickup_player_timeline": "animation.command.pickup_player_timeline"
 			},
 			"scripts": {
 				"animate": [
@@ -81,8 +82,11 @@
 					],
 					"height_above_target_range": [
 						5.0,
-						30.0
+						10
 					]
+				},
+				"minecraft:skin_id": {
+					"value": 0
 				}
 			},
 			"jimicc:ground_state": {
@@ -141,6 +145,9 @@
 				},
 				"minecraft:attack": {
 					"damage": 3
+				},
+				"minecraft:skin_id": {
+					"value": 0
 				}
 			},
 			"jimicc:perched_state": {
@@ -160,6 +167,37 @@
 				},
 				"minecraft:attack": {
 					"damage": 3
+				},
+				"minecraft:skin_id": {
+					"value": 0
+				}
+			},
+			"jimicc:carry_state": {
+				"minecraft:movement": {
+					"value": 0.1
+				},
+				"minecraft:navigation.float": {
+					"can_path_over_water": true
+				},
+				"minecraft:movement.basic": {},
+				"minecraft:jump.static": {},
+				"minecraft:behavior.float": {
+					"priority": 0
+				},
+				"minecraft:behavior.float_wander": {
+					"xz_dist": 10,
+					"y_dist": 7,
+					"y_offset": -2,
+					"random_reselect": true,
+					"float_duration": [
+						0.1,
+						0.35
+					]
+				},
+				"minecraft:can_fly": {},
+				"minecraft:physics": {},
+				"minecraft:skin_id": {
+					"value": 1
 				}
 			}
 		},
@@ -265,6 +303,10 @@
 						"trigger": "jimicc:trigger_ground_state"
 					},
 					{
+						"weight": 10,
+						"trigger": "jimicc:trigger_carry_state"
+					},
+					{
 						"weight": 20,
 						"trigger": "jimicc:trigger_perched_state"
 					}
@@ -274,7 +316,8 @@
 				"remove": {
 					"component_groups": [
 						"jimicc:ground_state",
-						"jimicc:perched_state"
+						"jimicc:perched_state",
+						"jimicc:carry_state"
 					]
 				},
 				"add": {
@@ -287,7 +330,8 @@
 				"remove": {
 					"component_groups": [
 						"jimicc:air_state",
-						"jimicc:perched_state"
+						"jimicc:perched_state",
+						"jimicc:carry_state"
 					]
 				},
 				"add": {
@@ -300,12 +344,27 @@
 				"remove": {
 					"component_groups": [
 						"jimicc:air_state",
-						"jimicc:ground_state"
+						"jimicc:ground_state",
+						"jimicc:carry_state"
 					]
 				},
 				"add": {
 					"component_groups": [
 						"jimicc:perched_state"
+					]
+				}
+			},
+			"jimicc:trigger_carry_state": {
+				"remove": {
+					"component_groups": [
+						"jimicc:air_state",
+						"jimicc:ground_state",
+						"jimicc:perched_state"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"jimicc:carry_state"
 					]
 				}
 			},

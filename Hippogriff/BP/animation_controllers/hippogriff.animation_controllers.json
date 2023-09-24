@@ -6,6 +6,25 @@
                 "default": {
                     "animations": [
                         "flying_flap"
+                    ],
+                    "transitions": [
+                        {
+                            "pickup_player_state": "query.skin_id == 1"
+                        }
+                    ]
+                },
+                "pickup_player_state": {
+                    "animations": [
+                        "pickup_player_timeline"
+                    ],
+                    "on_entry": [
+                        "/say Ahh! Player picked up"
+                        //"/tp @p @s"
+                    ],
+                    "transitions": [
+                        {
+                            "pickup_player_state": "query.skin_id != 1"
+                        }
                     ]
                 }
             }
