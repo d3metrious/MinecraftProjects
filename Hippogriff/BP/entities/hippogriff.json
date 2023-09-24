@@ -5,7 +5,20 @@
 			"identifier": "jimicc:hippogriff",
 			"is_spawnable": true,
 			"is_summonable": true,
-			"is_experimental": false
+			"is_experimental": false,
+			"animations": {
+				"stand_idle1": "animation.upright.stand.idle.1",
+				"stand_idle2": "animation.upright.stand.idle.2",
+				"stand_takeoff": "animation.upright.stand.takeoff",
+				"flying_idle": "animation.flying.idle",
+				"flying_flap": "animation.server.flying.flap",
+				"ground_anim_controller": "controller.animation.hippogriff.on_ground"
+			},
+			"scripts": {
+				"animate": [
+					"ground_anim_controller"
+				]
+			}
 		},
 		"component_groups": {
 			"jimicc:air_state": {
@@ -23,6 +36,7 @@
 					"value": 128,
 					"max": 128
 				},
+				"minecraft:can_fly": {},
 				"minecraft:behavior.nearest_attackable_target": {
 					"priority": 1,
 					"reselect_targets": true,
@@ -46,8 +60,8 @@
 					"damage_reach": 0.2,
 					"speed_multiplier": 1.0,
 					"delay_range": [
-						10.0,
-						20.0
+						5,
+						10
 					]
 				},
 				"minecraft:behavior.circle_around_anchor": {
@@ -66,8 +80,8 @@
 						5.0
 					],
 					"height_above_target_range": [
-						20.0,
-						40.0
+						5.0,
+						30.0
 					]
 				}
 			},
@@ -81,10 +95,22 @@
 				"minecraft:jump.static": {},
 				"minecraft:can_climb": {},
 				"minecraft:movement": {
-					"value": 1
+					"value": 0.7
 				},
 				"minecraft:behavior.float": {
 					"priority": 0
+				},
+				"minecraft:behavior.random_stroll": {
+					"priority": 6,
+					"speed_multiplier": 0.8
+				},
+				"minecraft:behavior.look_at_player": {
+					"priority": 7,
+					"look_distance": 6.0,
+					"probability": 0.02
+				},
+				"minecraft:behavior.random_look_around": {
+					"priority": 9
 				},
 				"minecraft:physics": {
 					"has_gravity": true
@@ -97,7 +123,7 @@
 					"priority": 2,
 					"must_see": true,
 					"reselect_targets": true,
-					"within_radius": 25.0,
+					"within_radius": 32.0,
 					"entity_types": [
 						{
 							"filters": {
@@ -105,9 +131,28 @@
 								"subject": "other",
 								"value": "player"
 							},
-							"max_dist": 32
+							"max_dist": 64
 						}
 					]
+				},
+				"minecraft:behavior.melee_attack": {
+					"priority": 3
+				},
+				"minecraft:attack": {
+					"damage": 3
+				}
+			},
+			"jimicc:perched_state": {
+				"minecraft:behavior.look_at_player": {
+					"priority": 7,
+					"look_distance": 6.0,
+					"probability": 0.02
+				},
+				"minecraft:behavior.random_look_around": {
+					"priority": 9
+				},
+				"minecraft:physics": {
+					"has_gravity": true
 				},
 				"minecraft:behavior.melee_attack": {
 					"priority": 3
@@ -133,8 +178,8 @@
 			},
 			"minecraft:nameable": {},
 			"minecraft:health": {
-				"value": 20,
-				"max": 20
+				"value": 200,
+				"max": 200
 			},
 			"minecraft:hurt_on_condition": {
 				"damage_conditions": [
@@ -215,15 +260,20 @@
 						"trigger": "jimicc:trigger_air_state"
 					},
 					{
-						"weight": 50,
+						"weight": 30,
 						"trigger": "jimicc:trigger_ground_state"
+					},
+					{
+						"weight": 20,
+						"trigger": "jimicc:trigger_perched_state"
 					}
 				]
 			},
 			"jimicc:trigger_air_state": {
 				"remove": {
 					"component_groups": [
-						"jimicc:ground_state"
+						"jimicc:ground_state",
+						"jimicc:perched_state"
 					]
 				},
 				"add": {
@@ -235,12 +285,26 @@
 			"jimicc:trigger_ground_state": {
 				"remove": {
 					"component_groups": [
-						"jimicc:air_state"
+						"jimicc:air_state",
+						"jimicc:perched_state"
 					]
 				},
 				"add": {
 					"component_groups": [
 						"jimicc:ground_state"
+					]
+				}
+			},
+			"jimicc:trigger_perched_state": {
+				"remove": {
+					"component_groups": [
+						"jimicc:air_state",
+						"jimicc:ground_state"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"jimicc:perched_state"
 					]
 				}
 			}

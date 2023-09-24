@@ -1,0 +1,14 @@
+{
+    "format_version": "1.18.10",
+    "animation_controllers": {
+        "controller.animation.hippogriff.on_ground": {
+            "states": {
+                "default": {
+                    "animations": [
+                        "flying_flap"
+                    ]
+                }
+            }
+        }
+    }
+}

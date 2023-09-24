@@ -1,22 +1,79 @@
 {
-	"format_version": "1.10.0",
+	"format_version": "1.18.10",
 	"animation_controllers": {
 		"controller.animation.hippogriff.base_pose": {
 			"initial_state": "default",
 			"states": {
 				"default": {
 					"animations": [
-						"flap"
+						"idle"
+					],
+					"transitions": [
+						{
+							"in_air": "query.can_fly"
+						},
+						{
+							"on_land": "!query.can_fly"
+						}
 					]
-				}
-			}
-		},
-		"controller.animation.phantom.move": {
-			"initial_state": "default",
-			"states": {
-				"default": {
+				},
+				"in_air": {
 					"animations": [
-						"walk"
+						"flap"
+					],
+					"transitions": [
+						{
+							"default": "!query.can_fly"
+						}
+					]
+				},
+				"on_land": {
+					"animations": [
+						"landing"
+					],
+					"transitions": [
+						{
+							"on_ground": "query.can_walk"
+						},
+						{
+							"standing_still": "!query.can_fly"
+						}
+					]
+				},
+				"on_ground": {
+					"animations": [
+						"attack"
+					],
+					"transitions": [
+						{
+							"start_flying": "query.can_fly"
+						},
+						{
+							"standing_still": "!query.can_walk"
+						}
+					]
+				},
+				"standing_still": {
+					"animations": [
+						"stand_idle1"
+					],
+					"transitions": [
+						{
+							"start_flying": "query.can_fly"
+						},
+						{
+							"on_ground": "query.can_walk"
+						}
+					]
+				},
+				"start_flying": {
+					"animations": [
+						"takeoff"
+					],
+					"transitions": [
+						{
+							"default": "query.all_animations_finished"
+						}
 					]
 				}
 			}

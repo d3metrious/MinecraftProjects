@@ -12414,10 +12414,13 @@
 				}
 			},
 			"sound_effects": {
-				"1.4": { "effect": "flap" }
+				"1.4": {
+					"effect": "flap"
+				}
 			}
 		},
 		"animation.flying.attack": {
+			"loop": true,
 			"animation_length": 1.83333,
 			"bones": {
 				"hipogriff": {

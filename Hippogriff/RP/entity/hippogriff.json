@@ -37,6 +37,8 @@
 				"flap": "animation.flying.flap",
 				"landing": "animation.flying.landing",
 				"takeoff": "animation.upright.stand.takeoff",
+				"stand_idle1": "animation.upright.stand.idle.1",
+				"stand_idle2": "animation.upright.stand.idle.2",
 				"anim_controller": "controller.animation.hippogriff.base_pose"
 			}
 		}
