@@ -8,7 +8,20 @@
       "minecraft:creative_category": {
         "category": "construction"
       },
-      "jimicc:hippogriff_trigger": {}
+      "minecraft:on_step_on": {
+        "event": "jimicc:spawn_hippogriff_trigger",
+        "target": "self" // Optional - 'self' is default (targets block)
+      }
+    },
+    "events": {
+      "jimicc:spawn_hippogriff_trigger": {
+        "run_command": {
+          "command": [
+            "say spawn hippogriff",
+            "/summon jimicc:hippogriff"
+          ]
+        }
+      }
     }
   }
 }

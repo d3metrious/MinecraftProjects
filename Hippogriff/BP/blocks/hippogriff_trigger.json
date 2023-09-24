@@ -1,0 +1,13 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:block": {
+    "description": {
+      "identifier": "jimicc:hippogriff_trigger"
+    },
+    "components": {
+      "minecraft:creative_category": {
+        "category": "construction"
+      }
+    }
+  }
+}

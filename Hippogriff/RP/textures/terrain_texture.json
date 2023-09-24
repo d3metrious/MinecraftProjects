@@ -6,6 +6,9 @@
 	"texture_data": {
 		"jimicc_hippogriff_spawner": {
 			"textures": "textures/blocks/hippogriff_spawner"
+		},
+		"jimicc_hippogriff_trigger": {
+			"textures": "textures/blocks/hippogriff_trigger"
 		}
 	}
 }
